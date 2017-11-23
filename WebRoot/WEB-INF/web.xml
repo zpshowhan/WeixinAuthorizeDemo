@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>WeixinAuthorizeDemo</display-name>
+  
+  <listener>
+  <listener-class>com.zlkj.weixin.listener.TaskListener</listener-class>
+  </listener>
+  
+  <servlet>
+    <servlet-name>WeiXinConfigurerServlet</servlet-name>
+    <servlet-class>com.zlkj.weixin.web.servlet.WeiXinConfigurerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WeiXinConfigurerServlet</servlet-name>
+    <url-pattern>/wxcfigServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>WeiXinUserServlet</servlet-name>
+  <servlet-class>com.zlkj.weixin.web.servlet.WeiXinUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>WeiXinUserServlet</servlet-name>
+  <url-pattern>/wxUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  <filter-name>WeixinAuthorizeFiler</filter-name>
+  <filter-class>com.zlkj.weixin.web.filter.WeiXinAuthorizeFiler</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>WeixinAuthorizeFiler</filter-name>
+  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
